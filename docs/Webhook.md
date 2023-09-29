@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.webhook import Webhook
+from 42videobricks-python-client.models.webhook import Webhook
 
 # TODO update the JSON string below
 json = "{}"

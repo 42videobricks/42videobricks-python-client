@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.data_video_usage import DataVideoUsage
+from 42videobricks-python-client.models.data_video_usage import DataVideoUsage
 
 # TODO update the JSON string below
 json = "{}"

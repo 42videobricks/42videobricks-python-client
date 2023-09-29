@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.data_video_usage_list import DataVideoUsageList
+from 42videobricks-python-client.models.data_video_usage_list import DataVideoUsageList
 
 # TODO update the JSON string below
 json = "{}"

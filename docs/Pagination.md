@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.pagination import Pagination
+from 42videobricks-python-client.models.pagination import Pagination
 
 # TODO update the JSON string below
 json = "{}"

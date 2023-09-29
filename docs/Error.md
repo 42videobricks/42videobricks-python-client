@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.error import Error
+from 42videobricks-python-client.models.error import Error
 
 # TODO update the JSON string below
 json = "{}"

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.video_multipart_upload_finalize_parts_inner import VideoMultipartUploadFinalizePartsInner
+from 42videobricks-python-client.models.video_multipart_upload_finalize_parts_inner import VideoMultipartUploadFinalizePartsInner
 
 # TODO update the JSON string below
 json = "{}"

@@ -1,4 +1,4 @@
-# openapi_client.WebhooksApi
+# 42videobricks-python-client.WebhooksApi
 
 All URIs are relative to *https://api-sbx.42videobricks.com*
 
@@ -24,13 +24,13 @@ Delete a webhook.
 ```python
 import time
 import os
-import openapi_client
-from openapi_client.rest import ApiException
+import 42videobricks-python-client
+from 42videobricks-python-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = 42videobricks-python-client.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -46,9 +46,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with 42videobricks-python-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.WebhooksApi(api_client)
+    api_instance = 42videobricks-python-client.WebhooksApi(api_client)
     webhook_id = '{{webhookId}}' # str | Id of the webhook
 
     try:
@@ -100,14 +100,14 @@ Retun a single webhook
 ```python
 import time
 import os
-import openapi_client
-from openapi_client.models.webhook import Webhook
-from openapi_client.rest import ApiException
+import 42videobricks-python-client
+from 42videobricks-python-client.models.webhook import Webhook
+from 42videobricks-python-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = 42videobricks-python-client.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -123,9 +123,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with 42videobricks-python-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.WebhooksApi(api_client)
+    api_instance = 42videobricks-python-client.WebhooksApi(api_client)
     webhook_id = '{{webhookId}}' # str | Id of the webhook
 
     try:
@@ -181,15 +181,15 @@ Update a existing webhooks.
 ```python
 import time
 import os
-import openapi_client
-from openapi_client.models.webhook import Webhook
-from openapi_client.models.webhook_properties import WebhookProperties
-from openapi_client.rest import ApiException
+import 42videobricks-python-client
+from 42videobricks-python-client.models.webhook import Webhook
+from 42videobricks-python-client.models.webhook_properties import WebhookProperties
+from 42videobricks-python-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = 42videobricks-python-client.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -205,11 +205,11 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with 42videobricks-python-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.WebhooksApi(api_client)
+    api_instance = 42videobricks-python-client.WebhooksApi(api_client)
     webhook_id = '{{webhookId}}' # str | Id of the webhook
-    webhook_properties = openapi_client.WebhookProperties() # WebhookProperties | 
+    webhook_properties = 42videobricks-python-client.WebhookProperties() # WebhookProperties | 
 
     try:
         # Update an existing webhook
@@ -265,14 +265,14 @@ Return the list of webhooks.  Return an empty list it there are no webhook to re
 ```python
 import time
 import os
-import openapi_client
-from openapi_client.models.webhook_list import WebhookList
-from openapi_client.rest import ApiException
+import 42videobricks-python-client
+from 42videobricks-python-client.models.webhook_list import WebhookList
+from 42videobricks-python-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = 42videobricks-python-client.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -288,9 +288,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with 42videobricks-python-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.WebhooksApi(api_client)
+    api_instance = 42videobricks-python-client.WebhooksApi(api_client)
     limit = 56 # int | Number of elements to return (default=10) (optional)
     offset = 56 # int | offset for pagination (optional)
 
@@ -347,15 +347,15 @@ Create a new webhook to configure notification.  Only one hook per url
 ```python
 import time
 import os
-import openapi_client
-from openapi_client.models.webhook import Webhook
-from openapi_client.models.webhook_properties import WebhookProperties
-from openapi_client.rest import ApiException
+import 42videobricks-python-client
+from 42videobricks-python-client.models.webhook import Webhook
+from 42videobricks-python-client.models.webhook_properties import WebhookProperties
+from 42videobricks-python-client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = 42videobricks-python-client.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -371,10 +371,10 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with 42videobricks-python-client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.WebhooksApi(api_client)
-    webhook_properties = openapi_client.WebhookProperties() # WebhookProperties | 
+    api_instance = 42videobricks-python-client.WebhooksApi(api_client)
+    webhook_properties = 42videobricks-python-client.WebhookProperties() # WebhookProperties | 
 
     try:
         # Add a new webhook
