@@ -15,10 +15,10 @@
 import unittest
 import datetime
 
-from 42videobricks-python-client.models.video_multipart_upload_init import VideoMultipartUploadInit  # noqa: E501
+from 42videobricks-python-client.models.tag_list import TagList  # noqa: E501
 
-class TestVideoMultipartUploadInit(unittest.TestCase):
-    """VideoMultipartUploadInit unit test stubs"""
+class TestTagList(unittest.TestCase):
+    """TagList unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,28 +26,31 @@ class TestVideoMultipartUploadInit(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> VideoMultipartUploadInit:
-        """Test VideoMultipartUploadInit
+    def make_instance(self, include_optional) -> TagList:
+        """Test TagList
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `VideoMultipartUploadInit`
+        # uncomment below to create an instance of `TagList`
         """
-        model = VideoMultipartUploadInit()  # noqa: E501
+        model = TagList()  # noqa: E501
         if include_optional:
-            return VideoMultipartUploadInit(
-                name = 'myvideo.mov',
-                size = 1000000
+            return TagList(
+                offset = 30,
+                limit = 1,
+                total = 355,
+                data = ["alien","cowboy"]
             )
         else:
-            return VideoMultipartUploadInit(
-                name = 'myvideo.mov',
-                size = 1000000,
+            return TagList(
+                offset = 30,
+                limit = 1,
+                total = 355,
         )
         """
 
-    def testVideoMultipartUploadInit(self):
-        """Test VideoMultipartUploadInit"""
+    def testTagList(self):
+        """Test TagList"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

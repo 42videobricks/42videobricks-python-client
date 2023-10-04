@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.video_multipart_upload_init_response_parts_inner import VideoMultipartUploadInitResponsePartsInner  # noqa: E501
+from 42videobricks-python-client.models.video_multipart_upload_init_response_parts_inner import VideoMultipartUploadInitResponsePartsInner  # noqa: E501
 
 class TestVideoMultipartUploadInitResponsePartsInner(unittest.TestCase):
     """VideoMultipartUploadInitResponsePartsInner unit test stubs"""

@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.pagination import Pagination  # noqa: E501
+from 42videobricks-python-client.models.pagination import Pagination  # noqa: E501
 
 class TestPagination(unittest.TestCase):
     """Pagination unit test stubs"""

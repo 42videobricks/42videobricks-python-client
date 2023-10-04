@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.video_assets import VideoAssets  # noqa: E501
+from 42videobricks-python-client.models.video_assets import VideoAssets  # noqa: E501
 
 class TestVideoAssets(unittest.TestCase):
     """VideoAssets unit test stubs"""

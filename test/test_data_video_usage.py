@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.data_video_usage import DataVideoUsage  # noqa: E501
+from 42videobricks-python-client.models.data_video_usage import DataVideoUsage  # noqa: E501
 
 class TestDataVideoUsage(unittest.TestCase):
     """DataVideoUsage unit test stubs"""

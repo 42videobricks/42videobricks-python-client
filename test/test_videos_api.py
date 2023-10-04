@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.videos_api import VideosApi  # noqa: E501
+from 42videobricks-python-client.api.videos_api import VideosApi  # noqa: E501
 
 
 class TestVideosApi(unittest.TestCase):

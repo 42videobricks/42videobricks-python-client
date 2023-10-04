@@ -56,7 +56,7 @@ class VideosApi:
     def add_attachment_by_video_id(self, video_id : Annotated[StrictStr, Field(..., description="Id of the video")], attachment_type : Annotated[StrictStr, Field(..., description="Type of attachment")], locale : Annotated[constr(strict=True), Field(..., description="Le locale value of the attachment")], file : Annotated[Optional[Union[StrictBytes, StrictStr]], Field(description="The file to upload")] = None, **kwargs) -> None:  # noqa: E501
         """Upload an attachement  # noqa: E501
 
-        Upload an attachement file and attached it to a video Currently: - attachement file type is limited to \"subtitle\" and \"cpation\" (close caption) - supported file types: SRT (text/plain), SCC (text/plain), TTML (application/ttml), VTT (text/vtt)  # noqa: E501
+        Upload an attachement file and attached it to a video Currently: - attachement file type is limited to \"subtitle\" and \"caption\" (close caption) - supported file types: SRT (text/plain), VTT (text/vtt)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -92,7 +92,7 @@ class VideosApi:
     def add_attachment_by_video_id_with_http_info(self, video_id : Annotated[StrictStr, Field(..., description="Id of the video")], attachment_type : Annotated[StrictStr, Field(..., description="Type of attachment")], locale : Annotated[constr(strict=True), Field(..., description="Le locale value of the attachment")], file : Annotated[Optional[Union[StrictBytes, StrictStr]], Field(description="The file to upload")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Upload an attachement  # noqa: E501
 
-        Upload an attachement file and attached it to a video Currently: - attachement file type is limited to \"subtitle\" and \"cpation\" (close caption) - supported file types: SRT (text/plain), SCC (text/plain), TTML (application/ttml), VTT (text/vtt)  # noqa: E501
+        Upload an attachement file and attached it to a video Currently: - attachement file type is limited to \"subtitle\" and \"caption\" (close caption) - supported file types: SRT (text/plain), VTT (text/vtt)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

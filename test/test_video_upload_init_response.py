@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.video_upload_init_response import VideoUploadInitResponse  # noqa: E501
+from 42videobricks-python-client.models.video_upload_init_response import VideoUploadInitResponse  # noqa: E501
 
 class TestVideoUploadInitResponse(unittest.TestCase):
     """VideoUploadInitResponse unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.webhooks_api import WebhooksApi  # noqa: E501
+from 42videobricks-python-client.api.webhooks_api import WebhooksApi  # noqa: E501
 
 
 class TestWebhooksApi(unittest.TestCase):

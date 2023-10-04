@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.data_video_usage_list import DataVideoUsageList  # noqa: E501
+from 42videobricks-python-client.models.data_video_usage_list import DataVideoUsageList  # noqa: E501
 
 class TestDataVideoUsageList(unittest.TestCase):
     """DataVideoUsageList unit test stubs"""
@@ -40,7 +40,7 @@ class TestDataVideoUsageList(unittest.TestCase):
                 limit = 1,
                 total = 355,
                 data = [
-                    openapi_client.models.data_video_usage.DataVideoUsage(
+                    42videobricks-python-client.models.data_video_usage.DataVideoUsage(
                         month_id = '2023-02', 
                         transcoding = 15715.23, 
                         hosting = 171523.34, 

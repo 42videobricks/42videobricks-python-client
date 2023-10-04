@@ -97,6 +97,7 @@ All URIs are relative to *https://api-sbx.42videobricks.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DataApi* | [**get_data_video_usage**](docs/DataApi.md#get_data_video_usage) | **GET** /data/videos/usage | List Video Usage KPIs
+*TagsApi* | [**get_tags**](docs/TagsApi.md#get_tags) | **GET** /tags | List Video Tags
 *VideosApi* | [**add_attachment_by_video_id**](docs/VideosApi.md#add_attachment_by_video_id) | **POST** /videos/{videoId}/attachments/{attachmentType}/{locale} | Upload an attachement
 *VideosApi* | [**add_thumbnail_by_video_id**](docs/VideosApi.md#add_thumbnail_by_video_id) | **POST** /videos/{videoId}/thumbnail | Upload a thumbnail
 *VideosApi* | [**add_video**](docs/VideosApi.md#add_video) | **POST** /videos | Add a new video
@@ -126,6 +127,7 @@ Class | Method | HTTP request | Description
  - [DataVideoUsageList](docs/DataVideoUsageList.md)
  - [Error](docs/Error.md)
  - [Pagination](docs/Pagination.md)
+ - [TagList](docs/TagList.md)
  - [Video](docs/Video.md)
  - [VideoAssets](docs/VideoAssets.md)
  - [VideoAttachment](docs/VideoAttachment.md)

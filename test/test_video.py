@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.video import Video  # noqa: E501
+from 42videobricks-python-client.models.video import Video  # noqa: E501
 
 class TestVideo(unittest.TestCase):
     """Video unit test stubs"""
@@ -45,7 +45,7 @@ class TestVideo(unittest.TestCase):
                 duration = 3600,
                 ctime = 1677020400,
                 mtime = 1679526000,
-                assets = openapi_client.models.video_assets.VideoAssets(
+                assets = 42videobricks-python-client.models.video_assets.VideoAssets(
                     thumbnail = 'https://media-delivery-cdn.alchimie-services.net/image/v1/mediadb-product-filetype-dev/1002541/COVER.jpg', 
                     player = 'https://stream.video-bricks.com/STNQM2FIN1Bpa3I3bC9IRw==/player', 
                     stream = 'https://stream.video-bricks.com/STNQM2FIN1Bpa3I3bC9IRw==', 

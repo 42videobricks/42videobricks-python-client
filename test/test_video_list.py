@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.video_list import VideoList  # noqa: E501
+from 42videobricks-python-client.models.video_list import VideoList  # noqa: E501
 
 class TestVideoList(unittest.TestCase):
     """VideoList unit test stubs"""

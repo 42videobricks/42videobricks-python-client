@@ -14,22 +14,22 @@
 
 import unittest
 
-from 42videobricks-python-client.api.data_api import DataApi  # noqa: E501
+from 42videobricks-python-client.api.tags_api import TagsApi  # noqa: E501
 
 
-class TestDataApi(unittest.TestCase):
-    """DataApi unit test stubs"""
+class TestTagsApi(unittest.TestCase):
+    """TagsApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = DataApi()  # noqa: E501
+        self.api = TagsApi()  # noqa: E501
 
     def tearDown(self) -> None:
         pass
 
-    def test_get_data_video_usage(self) -> None:
-        """Test case for get_data_video_usage
+    def test_get_tags(self) -> None:
+        """Test case for get_tags
 
-        List Video Usage KPIs  # noqa: E501
+        List Video Tags  # noqa: E501
         """
         pass
 

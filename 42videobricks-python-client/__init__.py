@@ -18,6 +18,7 @@ __version__ = "1.0.0"
 
 # import apis into sdk package
 from 42videobricks-python-client.api.data_api import DataApi
+from 42videobricks-python-client.api.tags_api import TagsApi
 from 42videobricks-python-client.api.videos_api import VideosApi
 from 42videobricks-python-client.api.webhooks_api import WebhooksApi
 
@@ -37,6 +38,7 @@ from 42videobricks-python-client.models.data_video_usage import DataVideoUsage
 from 42videobricks-python-client.models.data_video_usage_list import DataVideoUsageList
 from 42videobricks-python-client.models.error import Error
 from 42videobricks-python-client.models.pagination import Pagination
+from 42videobricks-python-client.models.tag_list import TagList
 from 42videobricks-python-client.models.video import Video
 from 42videobricks-python-client.models.video_assets import VideoAssets
 from 42videobricks-python-client.models.video_attachment import VideoAttachment

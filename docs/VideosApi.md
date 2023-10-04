@@ -27,7 +27,7 @@ Method | HTTP request | Description
 
 Upload an attachement
 
-Upload an attachement file and attached it to a video Currently: - attachement file type is limited to \"subtitle\" and \"cpation\" (close caption) - supported file types: SRT (text/plain), SCC (text/plain), TTML (application/ttml), VTT (text/vtt)
+Upload an attachement file and attached it to a video Currently: - attachement file type is limited to \"subtitle\" and \"caption\" (close caption) - supported file types: SRT (text/plain), VTT (text/vtt)
 
 ### Example
 

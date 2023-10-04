@@ -18,18 +18,18 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictStr
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictInt, StrictStr, conlist
 
-class VideoAssets(BaseModel):
+class TagList(BaseModel):
     """
-    Video Assets Object  # noqa: E501
+    Tag string list  # noqa: E501
     """
-    thumbnail: Optional[StrictStr] = Field(None, description="Url of the video thumbnail (cann be empty ?)")
-    player: Optional[StrictStr] = Field(None, description="Url to the video player code")
-    stream: Optional[StrictStr] = Field(None, description="Url to the video player stream")
-    iframe: Optional[StrictStr] = Field(None, description="html code to integrate the player in an iframe")
-    __properties = ["thumbnail", "player", "stream", "iframe"]
+    offset: StrictInt = Field(...)
+    limit: StrictInt = Field(...)
+    total: StrictInt = Field(...)
+    data: Optional[conlist(StrictStr)] = None
+    __properties = ["offset", "limit", "total", "data"]
 
     class Config:
         """Pydantic configuration"""
@@ -45,8 +45,8 @@ class VideoAssets(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> VideoAssets:
-        """Create an instance of VideoAssets from a JSON string"""
+    def from_json(cls, json_str: str) -> TagList:
+        """Create an instance of TagList from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -58,19 +58,19 @@ class VideoAssets(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> VideoAssets:
-        """Create an instance of VideoAssets from a dict"""
+    def from_dict(cls, obj: dict) -> TagList:
+        """Create an instance of TagList from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return VideoAssets.parse_obj(obj)
+            return TagList.parse_obj(obj)
 
-        _obj = VideoAssets.parse_obj({
-            "thumbnail": obj.get("thumbnail"),
-            "player": obj.get("player"),
-            "stream": obj.get("stream"),
-            "iframe": obj.get("iframe")
+        _obj = TagList.parse_obj({
+            "offset": obj.get("offset"),
+            "limit": obj.get("limit"),
+            "total": obj.get("total"),
+            "data": obj.get("data")
         })
         return _obj
 

@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.webhook import Webhook  # noqa: E501
+from 42videobricks-python-client.models.webhook import Webhook  # noqa: E501
 
 class TestWebhook(unittest.TestCase):
     """Webhook unit test stubs"""

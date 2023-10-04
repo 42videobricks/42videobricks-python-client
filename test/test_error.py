@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.error import Error  # noqa: E501
+from 42videobricks-python-client.models.error import Error  # noqa: E501
 
 class TestError(unittest.TestCase):
     """Error unit test stubs"""

@@ -18,6 +18,7 @@ from 42videobricks-python-client.models.data_video_usage import DataVideoUsage
 from 42videobricks-python-client.models.data_video_usage_list import DataVideoUsageList
 from 42videobricks-python-client.models.error import Error
 from 42videobricks-python-client.models.pagination import Pagination
+from 42videobricks-python-client.models.tag_list import TagList
 from 42videobricks-python-client.models.video import Video
 from 42videobricks-python-client.models.video_assets import VideoAssets
 from 42videobricks-python-client.models.video_attachment import VideoAttachment

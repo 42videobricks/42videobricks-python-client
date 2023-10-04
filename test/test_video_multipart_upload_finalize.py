@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.video_multipart_upload_finalize import VideoMultipartUploadFinalize  # noqa: E501
+from 42videobricks-python-client.models.video_multipart_upload_finalize import VideoMultipartUploadFinalize  # noqa: E501
 
 class TestVideoMultipartUploadFinalize(unittest.TestCase):
     """VideoMultipartUploadFinalize unit test stubs"""
@@ -39,7 +39,7 @@ class TestVideoMultipartUploadFinalize(unittest.TestCase):
                 file_id = '5Fu8SetDoWjk3wwReTuWzLat6KubZECxfek863H9nsYreaEaKUmQ4G5iyEAETMK9X_DYJ8QBsgnEoM5bM8B.HQBe9eBtpSxLuXM.THMzKy1JBd0b5XGZ7OT6z.RfZAafc4B4PJ.KyQFarsAY4X7j_Eq2bz6ydqfQHdPyE73vl0Q-',
                 file_key = 'ABkWl5kVPykAMSyu/myvideo.mov',
                 parts = [
-                    openapi_client.models.video_multipart_upload_finalize_parts_inner.VideoMultipartUploadFinalize_parts_inner(
+                    42videobricks-python-client.models.video_multipart_upload_finalize_parts_inner.VideoMultipartUploadFinalize_parts_inner(
                         part_number = 1, 
                         e_tag = 'c30a42eb53926797181859fd42ef31fb', )
                     ]
@@ -49,7 +49,7 @@ class TestVideoMultipartUploadFinalize(unittest.TestCase):
                 file_id = '5Fu8SetDoWjk3wwReTuWzLat6KubZECxfek863H9nsYreaEaKUmQ4G5iyEAETMK9X_DYJ8QBsgnEoM5bM8B.HQBe9eBtpSxLuXM.THMzKy1JBd0b5XGZ7OT6z.RfZAafc4B4PJ.KyQFarsAY4X7j_Eq2bz6ydqfQHdPyE73vl0Q-',
                 file_key = 'ABkWl5kVPykAMSyu/myvideo.mov',
                 parts = [
-                    openapi_client.models.video_multipart_upload_finalize_parts_inner.VideoMultipartUploadFinalize_parts_inner(
+                    42videobricks-python-client.models.video_multipart_upload_finalize_parts_inner.VideoMultipartUploadFinalize_parts_inner(
                         part_number = 1, 
                         e_tag = 'c30a42eb53926797181859fd42ef31fb', )
                     ],
