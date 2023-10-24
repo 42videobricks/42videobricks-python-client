@@ -20,7 +20,7 @@ import json
 
 from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist, constr, validator
-from 42videobricks-python-client.models.video_assets import VideoAssets
+from Api42Vb.models.video_assets import VideoAssets
 
 class Video(BaseModel):
     """

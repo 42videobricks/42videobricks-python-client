@@ -1,4 +1,4 @@
-# 42videobricks-python-client.DataApi
+# Api42Vb.DataApi
 
 All URIs are relative to *https://api-sbx.42videobricks.com*
 
@@ -20,14 +20,14 @@ Return the monthly usage of the platform ressources. For current month, usage is
 ```python
 import time
 import os
-import 42videobricks-python-client
-from 42videobricks-python-client.models.data_video_usage_list import DataVideoUsageList
-from 42videobricks-python-client.rest import ApiException
+import Api42Vb
+from Api42Vb.models.data_video_usage_list import DataVideoUsageList
+from Api42Vb.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
+configuration = Api42Vb.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -43,9 +43,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
+with Api42Vb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = 42videobricks-python-client.DataApi(api_client)
+    api_instance = Api42Vb.DataApi(api_client)
     limit = 56 # int | Number of elements to return (default=10) (optional)
     offset = 56 # int | offset for pagination (optional)
 

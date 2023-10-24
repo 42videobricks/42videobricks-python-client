@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from 42videobricks-python-client.models.webhook_properties import WebhookProperties
+from Api42Vb.models.webhook_properties import WebhookProperties
 
 # TODO update the JSON string below
 json = "{}"

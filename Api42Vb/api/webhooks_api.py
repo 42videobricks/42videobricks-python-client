@@ -23,13 +23,13 @@ from pydantic import Field, StrictInt, StrictStr, conint
 
 from typing import Optional
 
-from 42videobricks-python-client.models.webhook import Webhook
-from 42videobricks-python-client.models.webhook_list import WebhookList
-from 42videobricks-python-client.models.webhook_properties import WebhookProperties
+from Api42Vb.models.webhook import Webhook
+from Api42Vb.models.webhook_list import WebhookList
+from Api42Vb.models.webhook_properties import WebhookProperties
 
-from 42videobricks-python-client.api_client import ApiClient
-from 42videobricks-python-client.api_response import ApiResponse
-from 42videobricks-python-client.exceptions import (  # noqa: F401
+from Api42Vb.api_client import ApiClient
+from Api42Vb.api_response import ApiResponse
+from Api42Vb.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
@@ -46,6 +46,155 @@ class WebhooksApi:
         if api_client is None:
             api_client = ApiClient.get_default()
         self.api_client = api_client
+
+    @validate_arguments
+    def add_webhook(self, webhook_properties : WebhookProperties, **kwargs) -> Webhook:  # noqa: E501
+        """Add a new webhook  # noqa: E501
+
+        Create a new webhook to configure notification.  Only one hook per url  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.add_webhook(webhook_properties, async_req=True)
+        >>> result = thread.get()
+
+        :param webhook_properties: (required)
+        :type webhook_properties: WebhookProperties
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: Webhook
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the add_webhook_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.add_webhook_with_http_info(webhook_properties, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def add_webhook_with_http_info(self, webhook_properties : WebhookProperties, **kwargs) -> ApiResponse:  # noqa: E501
+        """Add a new webhook  # noqa: E501
+
+        Create a new webhook to configure notification.  Only one hook per url  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.add_webhook_with_http_info(webhook_properties, async_req=True)
+        >>> result = thread.get()
+
+        :param webhook_properties: (required)
+        :type webhook_properties: WebhookProperties
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(Webhook, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'webhook_properties'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method add_webhook" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        if _params['webhook_properties'] is not None:
+            _body_params = _params['webhook_properties']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
+
+        # authentication setting
+        _auth_settings = ['api_key']  # noqa: E501
+
+        _response_types_map = {
+            '201': "Webhook",
+            '400': "Error",
+            '500': "Error",
+        }
+
+        return self.api_client.call_api(
+            '/webhooks', 'POST',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
     def delete_webhook_by_id(self, webhook_id : Annotated[StrictStr, Field(..., description="Id of the webhook")], **kwargs) -> None:  # noqa: E501
@@ -327,6 +476,156 @@ class WebhooksApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
+    def get_webhooks(self, limit : Annotated[Optional[conint(strict=True, le=1000, ge=1)], Field(description="Number of elements to return (default=10)")] = None, offset : Annotated[Optional[StrictInt], Field(description="offset for pagination")] = None, **kwargs) -> WebhookList:  # noqa: E501
+        """List webhooks  # noqa: E501
+
+        Return the list of webhooks.  Return an empty list it there are no webhook to return.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_webhooks(limit, offset, async_req=True)
+        >>> result = thread.get()
+
+        :param limit: Number of elements to return (default=10)
+        :type limit: int
+        :param offset: offset for pagination
+        :type offset: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _request_timeout: timeout setting for this request.
+               If one number provided, it will be total request
+               timeout. It can also be a pair (tuple) of
+               (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: WebhookList
+        """
+        kwargs['_return_http_data_only'] = True
+        if '_preload_content' in kwargs:
+            message = "Error! Please call the get_webhooks_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            raise ValueError(message)
+        return self.get_webhooks_with_http_info(limit, offset, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_webhooks_with_http_info(self, limit : Annotated[Optional[conint(strict=True, le=1000, ge=1)], Field(description="Number of elements to return (default=10)")] = None, offset : Annotated[Optional[StrictInt], Field(description="offset for pagination")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+        """List webhooks  # noqa: E501
+
+        Return the list of webhooks.  Return an empty list it there are no webhook to return.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_webhooks_with_http_info(limit, offset, async_req=True)
+        >>> result = thread.get()
+
+        :param limit: Number of elements to return (default=10)
+        :type limit: int
+        :param offset: offset for pagination
+        :type offset: int
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the ApiResponse.data will
+                                 be set to none and raw_data will store the
+                                 HTTP response body without reading/decoding.
+                                 Default is True.
+        :type _preload_content: bool, optional
+        :param _return_http_data_only: response data instead of ApiResponse
+                                       object with status code, headers, etc
+        :type _return_http_data_only: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(WebhookList, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'limit',
+            'offset'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_webhooks" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+
+        # process the query parameters
+        _query_params = []
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
+
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
+
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['api_key']  # noqa: E501
+
+        _response_types_map = {
+            '200': "WebhookList",
+            '400': "Error",
+            '500': "Error",
+        }
+
+        return self.api_client.call_api(
+            '/webhooks', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
     def update_webhook_by_id(self, webhook_id : Annotated[StrictStr, Field(..., description="Id of the webhook")], webhook_properties : WebhookProperties, **kwargs) -> Webhook:  # noqa: E501
         """Update an existing webhook  # noqa: E501
 
@@ -469,305 +768,6 @@ class WebhooksApi:
 
         return self.api_client.call_api(
             '/webhooks/{webhookId}', 'PUT',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def webhooks_get(self, limit : Annotated[Optional[conint(strict=True, le=1000, ge=1)], Field(description="Number of elements to return (default=10)")] = None, offset : Annotated[Optional[StrictInt], Field(description="offset for pagination")] = None, **kwargs) -> WebhookList:  # noqa: E501
-        """List webhooks  # noqa: E501
-
-        Return the list of webhooks.  Return an empty list it there are no webhook to return.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.webhooks_get(limit, offset, async_req=True)
-        >>> result = thread.get()
-
-        :param limit: Number of elements to return (default=10)
-        :type limit: int
-        :param offset: offset for pagination
-        :type offset: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: WebhookList
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the webhooks_get_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.webhooks_get_with_http_info(limit, offset, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def webhooks_get_with_http_info(self, limit : Annotated[Optional[conint(strict=True, le=1000, ge=1)], Field(description="Number of elements to return (default=10)")] = None, offset : Annotated[Optional[StrictInt], Field(description="offset for pagination")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """List webhooks  # noqa: E501
-
-        Return the list of webhooks.  Return an empty list it there are no webhook to return.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.webhooks_get_with_http_info(limit, offset, async_req=True)
-        >>> result = thread.get()
-
-        :param limit: Number of elements to return (default=10)
-        :type limit: int
-        :param offset: offset for pagination
-        :type offset: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(WebhookList, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'limit',
-            'offset'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method webhooks_get" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-
-        # process the query parameters
-        _query_params = []
-        if _params.get('limit') is not None:  # noqa: E501
-            _query_params.append(('limit', _params['limit']))
-
-        if _params.get('offset') is not None:  # noqa: E501
-            _query_params.append(('offset', _params['offset']))
-
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # authentication setting
-        _auth_settings = ['api_key']  # noqa: E501
-
-        _response_types_map = {
-            '200': "WebhookList",
-            '400': "Error",
-            '500': "Error",
-        }
-
-        return self.api_client.call_api(
-            '/webhooks', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
-
-    @validate_arguments
-    def webhooks_post(self, webhook_properties : WebhookProperties, **kwargs) -> Webhook:  # noqa: E501
-        """Add a new webhook  # noqa: E501
-
-        Create a new webhook to configure notification.  Only one hook per url  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.webhooks_post(webhook_properties, async_req=True)
-        >>> result = thread.get()
-
-        :param webhook_properties: (required)
-        :type webhook_properties: WebhookProperties
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: Webhook
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the webhooks_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.webhooks_post_with_http_info(webhook_properties, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def webhooks_post_with_http_info(self, webhook_properties : WebhookProperties, **kwargs) -> ApiResponse:  # noqa: E501
-        """Add a new webhook  # noqa: E501
-
-        Create a new webhook to configure notification.  Only one hook per url  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.webhooks_post_with_http_info(webhook_properties, async_req=True)
-        >>> result = thread.get()
-
-        :param webhook_properties: (required)
-        :type webhook_properties: WebhookProperties
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(Webhook, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        _params = locals()
-
-        _all_params = [
-            'webhook_properties'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
-        )
-
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method webhooks_post" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        if _params['webhook_properties'] is not None:
-            _body_params = _params['webhook_properties']
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
-
-        # authentication setting
-        _auth_settings = ['api_key']  # noqa: E501
-
-        _response_types_map = {
-            '201': "Webhook",
-            '400': "Error",
-            '500': "Error",
-        }
-
-        return self.api_client.call_api(
-            '/webhooks', 'POST',
             _path_params,
             _query_params,
             _header_params,

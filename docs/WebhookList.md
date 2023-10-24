@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from 42videobricks-python-client.models.webhook_list import WebhookList
+from Api42Vb.models.webhook_list import WebhookList
 
 # TODO update the JSON string below
 json = "{}"

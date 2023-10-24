@@ -23,11 +23,11 @@ from pydantic import Field, StrictInt, conint
 
 from typing import Optional
 
-from 42videobricks-python-client.models.data_video_usage_list import DataVideoUsageList
+from Api42Vb.models.data_video_usage_list import DataVideoUsageList
 
-from 42videobricks-python-client.api_client import ApiClient
-from 42videobricks-python-client.api_response import ApiResponse
-from 42videobricks-python-client.exceptions import (  # noqa: F401
+from Api42Vb.api_client import ApiClient
+from Api42Vb.api_response import ApiResponse
+from Api42Vb.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )

@@ -20,16 +20,16 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictInt, conlist
-from 42videobricks-python-client.models.webhook import Webhook
+from Api42Vb.models.data_video_usage import DataVideoUsage
 
-class WebhookList(BaseModel):
+class DataVideoUsageList(BaseModel):
     """
-    Webhook Object List  # noqa: E501
+    Data Video Usage Object list  # noqa: E501
     """
     offset: StrictInt = Field(...)
     limit: StrictInt = Field(...)
     total: StrictInt = Field(...)
-    data: Optional[conlist(Webhook)] = None
+    data: Optional[conlist(DataVideoUsage)] = None
     __properties = ["offset", "limit", "total", "data"]
 
     class Config:
@@ -46,8 +46,8 @@ class WebhookList(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> WebhookList:
-        """Create an instance of WebhookList from a JSON string"""
+    def from_json(cls, json_str: str) -> DataVideoUsageList:
+        """Create an instance of DataVideoUsageList from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -66,19 +66,19 @@ class WebhookList(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> WebhookList:
-        """Create an instance of WebhookList from a dict"""
+    def from_dict(cls, obj: dict) -> DataVideoUsageList:
+        """Create an instance of DataVideoUsageList from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return WebhookList.parse_obj(obj)
+            return DataVideoUsageList.parse_obj(obj)
 
-        _obj = WebhookList.parse_obj({
+        _obj = DataVideoUsageList.parse_obj({
             "offset": obj.get("offset"),
             "limit": obj.get("limit"),
             "total": obj.get("total"),
-            "data": [Webhook.from_dict(_item) for _item in obj.get("data")] if obj.get("data") is not None else None
+            "data": [DataVideoUsage.from_dict(_item) for _item in obj.get("data")] if obj.get("data") is not None else None
         })
         return _obj
 

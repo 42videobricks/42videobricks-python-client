@@ -23,18 +23,18 @@ from pydantic import Field, StrictBool, StrictBytes, StrictInt, StrictStr, conin
 
 from typing import Optional, Union
 
-from 42videobricks-python-client.models.video import Video
-from 42videobricks-python-client.models.video_attachment_list import VideoAttachmentList
-from 42videobricks-python-client.models.video_list import VideoList
-from 42videobricks-python-client.models.video_multipart_upload_finalize import VideoMultipartUploadFinalize
-from 42videobricks-python-client.models.video_multipart_upload_init import VideoMultipartUploadInit
-from 42videobricks-python-client.models.video_multipart_upload_init_response import VideoMultipartUploadInitResponse
-from 42videobricks-python-client.models.video_properties import VideoProperties
-from 42videobricks-python-client.models.video_upload_init_response import VideoUploadInitResponse
+from Api42Vb.models.video import Video
+from Api42Vb.models.video_attachment_list import VideoAttachmentList
+from Api42Vb.models.video_list import VideoList
+from Api42Vb.models.video_multipart_upload_finalize import VideoMultipartUploadFinalize
+from Api42Vb.models.video_multipart_upload_init import VideoMultipartUploadInit
+from Api42Vb.models.video_multipart_upload_init_response import VideoMultipartUploadInitResponse
+from Api42Vb.models.video_properties import VideoProperties
+from Api42Vb.models.video_upload_init_response import VideoUploadInitResponse
 
-from 42videobricks-python-client.api_client import ApiClient
-from 42videobricks-python-client.api_response import ApiResponse
-from 42videobricks-python-client.exceptions import (  # noqa: F401
+from Api42Vb.api_client import ApiClient
+from Api42Vb.api_response import ApiResponse
+from Api42Vb.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
@@ -1876,7 +1876,7 @@ class VideosApi:
     def get_videos(self, limit : Annotated[Optional[conint(strict=True, le=1000, ge=1)], Field(description="Number of elements to return (default=10)")] = None, offset : Annotated[Optional[StrictInt], Field(description="offset for pagination")] = None, search : Annotated[Optional[StrictStr], Field(description="Keywords search in all indexed fields")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sorting results")] = None, **kwargs) -> VideoList:  # noqa: E501
         """List videos  # noqa: E501
 
-        Return the list of videos.  Optionnal: Title is used to filter video: only video containing  this string ware returned.  Return an empty list it there is no video to return.  # noqa: E501
+        Return the list of videos.  Return an empty list it there is no video to return.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1912,7 +1912,7 @@ class VideosApi:
     def get_videos_with_http_info(self, limit : Annotated[Optional[conint(strict=True, le=1000, ge=1)], Field(description="Number of elements to return (default=10)")] = None, offset : Annotated[Optional[StrictInt], Field(description="offset for pagination")] = None, search : Annotated[Optional[StrictStr], Field(description="Keywords search in all indexed fields")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sorting results")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """List videos  # noqa: E501
 
-        Return the list of videos.  Optionnal: Title is used to filter video: only video containing  this string ware returned.  Return an empty list it there is no video to return.  # noqa: E501
+        Return the list of videos.  Return an empty list it there is no video to return.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

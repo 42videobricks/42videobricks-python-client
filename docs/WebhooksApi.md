@@ -1,22 +1,22 @@
-# 42videobricks-python-client.WebhooksApi
+# Api42Vb.WebhooksApi
 
 All URIs are relative to *https://api-sbx.42videobricks.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**add_webhook**](WebhooksApi.md#add_webhook) | **POST** /webhooks | Add a new webhook
 [**delete_webhook_by_id**](WebhooksApi.md#delete_webhook_by_id) | **DELETE** /webhooks/{webhookId} | Delete a webhook
 [**get_webhook_by_id**](WebhooksApi.md#get_webhook_by_id) | **GET** /webhooks/{webhookId} | Retun a single webhook
+[**get_webhooks**](WebhooksApi.md#get_webhooks) | **GET** /webhooks | List webhooks
 [**update_webhook_by_id**](WebhooksApi.md#update_webhook_by_id) | **PUT** /webhooks/{webhookId} | Update an existing webhook
-[**webhooks_get**](WebhooksApi.md#webhooks_get) | **GET** /webhooks | List webhooks
-[**webhooks_post**](WebhooksApi.md#webhooks_post) | **POST** /webhooks | Add a new webhook
 
 
-# **delete_webhook_by_id**
-> delete_webhook_by_id(webhook_id)
+# **add_webhook**
+> Webhook add_webhook(webhook_properties)
 
-Delete a webhook
+Add a new webhook
 
-Delete a webhook.
+Create a new webhook to configure notification.  Only one hook per url
 
 ### Example
 
@@ -24,13 +24,15 @@ Delete a webhook.
 ```python
 import time
 import os
-import 42videobricks-python-client
-from 42videobricks-python-client.rest import ApiException
+import Api42Vb
+from Api42Vb.models.webhook import Webhook
+from Api42Vb.models.webhook_properties import WebhookProperties
+from Api42Vb.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
+configuration = Api42Vb.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -46,9 +48,88 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
+with Api42Vb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = 42videobricks-python-client.WebhooksApi(api_client)
+    api_instance = Api42Vb.WebhooksApi(api_client)
+    webhook_properties = Api42Vb.WebhookProperties() # WebhookProperties | 
+
+    try:
+        # Add a new webhook
+        api_response = api_instance.add_webhook(webhook_properties)
+        print("The response of WebhooksApi->add_webhook:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling WebhooksApi->add_webhook: %s\n" % e)
+```
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **webhook_properties** | [**WebhookProperties**](WebhookProperties.md)|  | 
+
+### Return type
+
+[**Webhook**](Webhook.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Webhook Created |  -  |
+**400** | The request is invalid or incomplete |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_webhook_by_id**
+> delete_webhook_by_id(webhook_id)
+
+Delete a webhook
+
+Delete a webhook.
+
+### Example
+
+* Api Key Authentication (api_key):
+```python
+import time
+import os
+import Api42Vb
+from Api42Vb.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api-sbx.42videobricks.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = Api42Vb.Configuration(
+    host = "https://api-sbx.42videobricks.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key
+configuration.api_key['api_key'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['api_key'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with Api42Vb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = Api42Vb.WebhooksApi(api_client)
     webhook_id = '{{webhookId}}' # str | Id of the webhook
 
     try:
@@ -100,14 +181,14 @@ Retun a single webhook
 ```python
 import time
 import os
-import 42videobricks-python-client
-from 42videobricks-python-client.models.webhook import Webhook
-from 42videobricks-python-client.rest import ApiException
+import Api42Vb
+from Api42Vb.models.webhook import Webhook
+from Api42Vb.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
+configuration = Api42Vb.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -123,9 +204,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
+with Api42Vb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = 42videobricks-python-client.WebhooksApi(api_client)
+    api_instance = Api42Vb.WebhooksApi(api_client)
     webhook_id = '{{webhookId}}' # str | Id of the webhook
 
     try:
@@ -168,12 +249,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_webhook_by_id**
-> Webhook update_webhook_by_id(webhook_id, webhook_properties)
+# **get_webhooks**
+> WebhookList get_webhooks(limit=limit, offset=offset)
 
-Update an existing webhook
+List webhooks
 
-Update a existing webhooks.
+Return the list of webhooks.  Return an empty list it there are no webhook to return.
 
 ### Example
 
@@ -181,15 +262,14 @@ Update a existing webhooks.
 ```python
 import time
 import os
-import 42videobricks-python-client
-from 42videobricks-python-client.models.webhook import Webhook
-from 42videobricks-python-client.models.webhook_properties import WebhookProperties
-from 42videobricks-python-client.rest import ApiException
+import Api42Vb
+from Api42Vb.models.webhook_list import WebhookList
+from Api42Vb.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
+configuration = Api42Vb.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -205,11 +285,94 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
+with Api42Vb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = 42videobricks-python-client.WebhooksApi(api_client)
+    api_instance = Api42Vb.WebhooksApi(api_client)
+    limit = 56 # int | Number of elements to return (default=10) (optional)
+    offset = 56 # int | offset for pagination (optional)
+
+    try:
+        # List webhooks
+        api_response = api_instance.get_webhooks(limit=limit, offset=offset)
+        print("The response of WebhooksApi->get_webhooks:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling WebhooksApi->get_webhooks: %s\n" % e)
+```
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int**| Number of elements to return (default&#x3D;10) | [optional] 
+ **offset** | **int**| offset for pagination | [optional] 
+
+### Return type
+
+[**WebhookList**](WebhookList.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List of webhooks |  -  |
+**400** | The request is invalid or incomplete |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_webhook_by_id**
+> Webhook update_webhook_by_id(webhook_id, webhook_properties)
+
+Update an existing webhook
+
+Update a existing webhooks.
+
+### Example
+
+* Api Key Authentication (api_key):
+```python
+import time
+import os
+import Api42Vb
+from Api42Vb.models.webhook import Webhook
+from Api42Vb.models.webhook_properties import WebhookProperties
+from Api42Vb.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api-sbx.42videobricks.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = Api42Vb.Configuration(
+    host = "https://api-sbx.42videobricks.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key
+configuration.api_key['api_key'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['api_key'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with Api42Vb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = Api42Vb.WebhooksApi(api_client)
     webhook_id = '{{webhookId}}' # str | Id of the webhook
-    webhook_properties = 42videobricks-python-client.WebhookProperties() # WebhookProperties | 
+    webhook_properties = Api42Vb.WebhookProperties() # WebhookProperties | 
 
     try:
         # Update an existing webhook
@@ -248,169 +411,6 @@ Name | Type | Description  | Notes
 **200** | Webhook Updated |  -  |
 **400** | The request is invalid or incomplete |  -  |
 **404** | The specified resource was not found |  -  |
-**500** | Internal Server Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **webhooks_get**
-> WebhookList webhooks_get(limit=limit, offset=offset)
-
-List webhooks
-
-Return the list of webhooks.  Return an empty list it there are no webhook to return.
-
-### Example
-
-* Api Key Authentication (api_key):
-```python
-import time
-import os
-import 42videobricks-python-client
-from 42videobricks-python-client.models.webhook_list import WebhookList
-from 42videobricks-python-client.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api-sbx.42videobricks.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
-    host = "https://api-sbx.42videobricks.com"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: api_key
-configuration.api_key['api_key'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['api_key'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = 42videobricks-python-client.WebhooksApi(api_client)
-    limit = 56 # int | Number of elements to return (default=10) (optional)
-    offset = 56 # int | offset for pagination (optional)
-
-    try:
-        # List webhooks
-        api_response = api_instance.webhooks_get(limit=limit, offset=offset)
-        print("The response of WebhooksApi->webhooks_get:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling WebhooksApi->webhooks_get: %s\n" % e)
-```
-
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int**| Number of elements to return (default&#x3D;10) | [optional] 
- **offset** | **int**| offset for pagination | [optional] 
-
-### Return type
-
-[**WebhookList**](WebhookList.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | List of webhooks |  -  |
-**400** | The request is invalid or incomplete |  -  |
-**500** | Internal Server Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **webhooks_post**
-> Webhook webhooks_post(webhook_properties)
-
-Add a new webhook
-
-Create a new webhook to configure notification.  Only one hook per url
-
-### Example
-
-* Api Key Authentication (api_key):
-```python
-import time
-import os
-import 42videobricks-python-client
-from 42videobricks-python-client.models.webhook import Webhook
-from 42videobricks-python-client.models.webhook_properties import WebhookProperties
-from 42videobricks-python-client.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api-sbx.42videobricks.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
-    host = "https://api-sbx.42videobricks.com"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: api_key
-configuration.api_key['api_key'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['api_key'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = 42videobricks-python-client.WebhooksApi(api_client)
-    webhook_properties = 42videobricks-python-client.WebhookProperties() # WebhookProperties | 
-
-    try:
-        # Add a new webhook
-        api_response = api_instance.webhooks_post(webhook_properties)
-        print("The response of WebhooksApi->webhooks_post:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling WebhooksApi->webhooks_post: %s\n" % e)
-```
-
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhook_properties** | [**WebhookProperties**](WebhookProperties.md)|  | 
-
-### Return type
-
-[**Webhook**](Webhook.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** | Webhook Created |  -  |
-**400** | The request is invalid or incomplete |  -  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

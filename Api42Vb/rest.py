@@ -21,7 +21,7 @@ import ssl
 from urllib.parse import urlencode, quote_plus
 import urllib3
 
-from 42videobricks-python-client.exceptions import ApiException, UnauthorizedException, ForbiddenException, NotFoundException, ServiceException, ApiValueError, BadRequestException
+from Api42Vb.exceptions import ApiException, UnauthorizedException, ForbiddenException, NotFoundException, ServiceException, ApiValueError, BadRequestException
 
 
 logger = logging.getLogger(__name__)

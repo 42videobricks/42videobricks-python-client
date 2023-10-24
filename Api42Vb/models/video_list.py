@@ -20,16 +20,16 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictInt, conlist
-from 42videobricks-python-client.models.video_attachment import VideoAttachment
+from Api42Vb.models.video import Video
 
-class VideoAttachmentList(BaseModel):
+class VideoList(BaseModel):
     """
-    Video Attachment Object list  # noqa: E501
+    Video Object list  # noqa: E501
     """
     offset: StrictInt = Field(...)
     limit: StrictInt = Field(...)
     total: StrictInt = Field(...)
-    data: Optional[conlist(VideoAttachment)] = None
+    data: Optional[conlist(Video)] = None
     __properties = ["offset", "limit", "total", "data"]
 
     class Config:
@@ -46,8 +46,8 @@ class VideoAttachmentList(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> VideoAttachmentList:
-        """Create an instance of VideoAttachmentList from a JSON string"""
+    def from_json(cls, json_str: str) -> VideoList:
+        """Create an instance of VideoList from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -66,19 +66,19 @@ class VideoAttachmentList(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> VideoAttachmentList:
-        """Create an instance of VideoAttachmentList from a dict"""
+    def from_dict(cls, obj: dict) -> VideoList:
+        """Create an instance of VideoList from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return VideoAttachmentList.parse_obj(obj)
+            return VideoList.parse_obj(obj)
 
-        _obj = VideoAttachmentList.parse_obj({
+        _obj = VideoList.parse_obj({
             "offset": obj.get("offset"),
             "limit": obj.get("limit"),
             "total": obj.get("total"),
-            "data": [VideoAttachment.from_dict(_item) for _item in obj.get("data")] if obj.get("data") is not None else None
+            "data": [Video.from_dict(_item) for _item in obj.get("data")] if obj.get("data") is not None else None
         })
         return _obj
 

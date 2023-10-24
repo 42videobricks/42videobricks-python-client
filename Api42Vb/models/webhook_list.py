@@ -20,16 +20,16 @@ import json
 
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictInt, conlist
-from 42videobricks-python-client.models.video import Video
+from Api42Vb.models.webhook import Webhook
 
-class VideoList(BaseModel):
+class WebhookList(BaseModel):
     """
-    Video Object list  # noqa: E501
+    Webhook Object List  # noqa: E501
     """
     offset: StrictInt = Field(...)
     limit: StrictInt = Field(...)
     total: StrictInt = Field(...)
-    data: Optional[conlist(Video)] = None
+    data: Optional[conlist(Webhook)] = None
     __properties = ["offset", "limit", "total", "data"]
 
     class Config:
@@ -46,8 +46,8 @@ class VideoList(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> VideoList:
-        """Create an instance of VideoList from a JSON string"""
+    def from_json(cls, json_str: str) -> WebhookList:
+        """Create an instance of WebhookList from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -66,19 +66,19 @@ class VideoList(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> VideoList:
-        """Create an instance of VideoList from a dict"""
+    def from_dict(cls, obj: dict) -> WebhookList:
+        """Create an instance of WebhookList from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return VideoList.parse_obj(obj)
+            return WebhookList.parse_obj(obj)
 
-        _obj = VideoList.parse_obj({
+        _obj = WebhookList.parse_obj({
             "offset": obj.get("offset"),
             "limit": obj.get("limit"),
             "total": obj.get("total"),
-            "data": [Video.from_dict(_item) for _item in obj.get("data")] if obj.get("data") is not None else None
+            "data": [Webhook.from_dict(_item) for _item in obj.get("data")] if obj.get("data") is not None else None
         })
         return _obj
 

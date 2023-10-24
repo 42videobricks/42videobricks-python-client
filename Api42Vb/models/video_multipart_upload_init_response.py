@@ -18,18 +18,19 @@ import re  # noqa: F401
 import json
 
 
-from typing import List
-from pydantic import BaseModel, Field, StrictStr, conlist
-from 42videobricks-python-client.models.video_multipart_upload_finalize_parts_inner import VideoMultipartUploadFinalizePartsInner
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictInt, StrictStr, conlist
+from Api42Vb.models.video_multipart_upload_init_response_parts_inner import VideoMultipartUploadInitResponsePartsInner
 
-class VideoMultipartUploadFinalize(BaseModel):
+class VideoMultipartUploadInitResponse(BaseModel):
     """
-    Video Multipart upload finalization  # noqa: E501
+    Video Mutlipart Upload Init response object  # noqa: E501
     """
-    file_id: StrictStr = Field(..., alias="fileId", description="file id")
-    file_key: StrictStr = Field(..., alias="fileKey", description="file key")
-    parts: conlist(VideoMultipartUploadFinalizePartsInner) = Field(...)
-    __properties = ["fileId", "fileKey", "parts"]
+    chunk_size: Optional[StrictInt] = Field(None, alias="chunkSize", description="part chunk size")
+    file_id: Optional[StrictStr] = Field(None, alias="fileId", description="file id")
+    file_key: Optional[StrictStr] = Field(None, alias="fileKey", description="file key")
+    parts: Optional[conlist(VideoMultipartUploadInitResponsePartsInner)] = None
+    __properties = ["chunkSize", "fileId", "fileKey", "parts"]
 
     class Config:
         """Pydantic configuration"""
@@ -45,8 +46,8 @@ class VideoMultipartUploadFinalize(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> VideoMultipartUploadFinalize:
-        """Create an instance of VideoMultipartUploadFinalize from a JSON string"""
+    def from_json(cls, json_str: str) -> VideoMultipartUploadInitResponse:
+        """Create an instance of VideoMultipartUploadInitResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -65,18 +66,19 @@ class VideoMultipartUploadFinalize(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> VideoMultipartUploadFinalize:
-        """Create an instance of VideoMultipartUploadFinalize from a dict"""
+    def from_dict(cls, obj: dict) -> VideoMultipartUploadInitResponse:
+        """Create an instance of VideoMultipartUploadInitResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return VideoMultipartUploadFinalize.parse_obj(obj)
+            return VideoMultipartUploadInitResponse.parse_obj(obj)
 
-        _obj = VideoMultipartUploadFinalize.parse_obj({
+        _obj = VideoMultipartUploadInitResponse.parse_obj({
+            "chunk_size": obj.get("chunkSize"),
             "file_id": obj.get("fileId"),
             "file_key": obj.get("fileKey"),
-            "parts": [VideoMultipartUploadFinalizePartsInner.from_dict(_item) for _item in obj.get("parts")] if obj.get("parts") is not None else None
+            "parts": [VideoMultipartUploadInitResponsePartsInner.from_dict(_item) for _item in obj.get("parts")] if obj.get("parts") is not None else None
         })
         return _obj
 

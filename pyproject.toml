@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "42videobricks-python-client"
-version = "1.0.0"
+name = "Api42Vb"
+version = "1.1.0"
 description = "42videobricks"
 authors = ["OpenAPI Generator Community <team@openapitools.org>"]
 license = "NoLicense"
 readme = "README.md"
 repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
 keywords = ["OpenAPI", "OpenAPI-Generator", "42videobricks"]
-include = ["42videobricks-python-client/py.typed"]
+include = ["Api42Vb/py.typed"]
 
 [tool.poetry.dependencies]
 python = "^3.7"

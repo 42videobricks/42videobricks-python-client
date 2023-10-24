@@ -24,11 +24,11 @@ import tempfile
 
 from urllib.parse import quote
 
-from 42videobricks-python-client.configuration import Configuration
-from 42videobricks-python-client.api_response import ApiResponse
-import 42videobricks-python-client.models
-from 42videobricks-python-client import rest
-from 42videobricks-python-client.exceptions import ApiValueError, ApiException
+from Api42Vb.configuration import Configuration
+from Api42Vb.api_response import ApiResponse
+import Api42Vb.models
+from Api42Vb import rest
+from Api42Vb.exceptions import ApiValueError, ApiException
 
 
 class ApiClient:
@@ -76,7 +76,7 @@ class ApiClient:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'OpenAPI-Generator/1.0.0/python'
+        self.user_agent = 'OpenAPI-Generator/1.1.0/python'
         self.client_side_validation = configuration.client_side_validation
 
     def __enter__(self):
@@ -344,7 +344,7 @@ class ApiClient:
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
             else:
-                klass = getattr(42videobricks-python-client.models, klass)
+                klass = getattr(Api42Vb.models, klass)
 
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from 42videobricks-python-client.models.video_upload_init_response import VideoUploadInitResponse
+from Api42Vb.models.video_upload_init_response import VideoUploadInitResponse
 
 # TODO update the JSON string below
 json = "{}"

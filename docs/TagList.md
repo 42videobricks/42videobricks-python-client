@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from 42videobricks-python-client.models.tag_list import TagList
+from Api42Vb.models.tag_list import TagList
 
 # TODO update the JSON string below
 json = "{}"

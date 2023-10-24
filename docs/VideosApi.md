@@ -1,4 +1,4 @@
-# 42videobricks-python-client.VideosApi
+# Api42Vb.VideosApi
 
 All URIs are relative to *https://api-sbx.42videobricks.com*
 
@@ -35,13 +35,13 @@ Upload an attachement file and attached it to a video Currently: - attachement f
 ```python
 import time
 import os
-import 42videobricks-python-client
-from 42videobricks-python-client.rest import ApiException
+import Api42Vb
+from Api42Vb.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
+configuration = Api42Vb.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -57,9 +57,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
+with Api42Vb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = 42videobricks-python-client.VideosApi(api_client)
+    api_instance = Api42Vb.VideosApi(api_client)
     video_id = '{{videoId}}' # str | Id of the video
     attachment_type = '{{attachmentType}}' # str | Type of attachment
     locale = '{{locale}}' # str | Le locale value of the attachment
@@ -119,13 +119,13 @@ Upload an image file and set it as Thumbnail to the video
 ```python
 import time
 import os
-import 42videobricks-python-client
-from 42videobricks-python-client.rest import ApiException
+import Api42Vb
+from Api42Vb.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
+configuration = Api42Vb.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -141,9 +141,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
+with Api42Vb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = 42videobricks-python-client.VideosApi(api_client)
+    api_instance = Api42Vb.VideosApi(api_client)
     video_id = '{{videoId}}' # str | Id of the video
     file = None # bytearray | The file to upload (optional)
 
@@ -199,15 +199,15 @@ You can create a video object by using this endpoint.  Once the video is created
 ```python
 import time
 import os
-import 42videobricks-python-client
-from 42videobricks-python-client.models.video import Video
-from 42videobricks-python-client.models.video_properties import VideoProperties
-from 42videobricks-python-client.rest import ApiException
+import Api42Vb
+from Api42Vb.models.video import Video
+from Api42Vb.models.video_properties import VideoProperties
+from Api42Vb.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
+configuration = Api42Vb.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -223,10 +223,10 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
+with Api42Vb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = 42videobricks-python-client.VideosApi(api_client)
-    video_properties = 42videobricks-python-client.VideoProperties() # VideoProperties | 
+    api_instance = Api42Vb.VideosApi(api_client)
+    video_properties = Api42Vb.VideoProperties() # VideoProperties | 
 
     try:
         # Add a new video
@@ -280,13 +280,13 @@ Delete an attachment (and the attached file)
 ```python
 import time
 import os
-import 42videobricks-python-client
-from 42videobricks-python-client.rest import ApiException
+import Api42Vb
+from Api42Vb.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
+configuration = Api42Vb.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -302,9 +302,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
+with Api42Vb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = 42videobricks-python-client.VideosApi(api_client)
+    api_instance = Api42Vb.VideosApi(api_client)
     video_id = '{{videoId}}' # str | Id of the video
     attachment_type = '{{attachmentType}}' # str | Type of attachment
     locale = '{{locale}}' # str | Le locale value of the attachment
@@ -360,13 +360,13 @@ Delete a thumbnail
 ```python
 import time
 import os
-import 42videobricks-python-client
-from 42videobricks-python-client.rest import ApiException
+import Api42Vb
+from Api42Vb.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
+configuration = Api42Vb.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -382,9 +382,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
+with Api42Vb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = 42videobricks-python-client.VideosApi(api_client)
+    api_instance = Api42Vb.VideosApi(api_client)
     video_id = '{{videoId}}' # str | Id of the video
 
     try:
@@ -436,13 +436,13 @@ Delete a video
 ```python
 import time
 import os
-import 42videobricks-python-client
-from 42videobricks-python-client.rest import ApiException
+import Api42Vb
+from Api42Vb.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
+configuration = Api42Vb.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -458,9 +458,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
+with Api42Vb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = 42videobricks-python-client.VideosApi(api_client)
+    api_instance = Api42Vb.VideosApi(api_client)
     video_id = '{{videoId}}' # str | Id of the video
 
     try:
@@ -514,14 +514,14 @@ Once video parts are uploaded, finalize the upload by requesting to transcode th
 ```python
 import time
 import os
-import 42videobricks-python-client
-from 42videobricks-python-client.models.video_multipart_upload_finalize import VideoMultipartUploadFinalize
-from 42videobricks-python-client.rest import ApiException
+import Api42Vb
+from Api42Vb.models.video_multipart_upload_finalize import VideoMultipartUploadFinalize
+from Api42Vb.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
+configuration = Api42Vb.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -537,11 +537,11 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
+with Api42Vb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = 42videobricks-python-client.VideosApi(api_client)
+    api_instance = Api42Vb.VideosApi(api_client)
     video_id = '{{videoId}}' # str | Id of the video
-    video_multipart_upload_finalize = 42videobricks-python-client.VideoMultipartUploadFinalize() # VideoMultipartUploadFinalize |  (optional)
+    video_multipart_upload_finalize = Api42Vb.VideoMultipartUploadFinalize() # VideoMultipartUploadFinalize |  (optional)
 
     try:
         # Multipart upload finalization
@@ -595,13 +595,13 @@ Once video file is uploaded, finalize the upload by requesting to transcode the 
 ```python
 import time
 import os
-import 42videobricks-python-client
-from 42videobricks-python-client.rest import ApiException
+import Api42Vb
+from Api42Vb.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
+configuration = Api42Vb.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -617,9 +617,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
+with Api42Vb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = 42videobricks-python-client.VideosApi(api_client)
+    api_instance = Api42Vb.VideosApi(api_client)
     video_id = '{{videoId}}' # str | Id of the video
 
     try:
@@ -673,13 +673,13 @@ Get a video attachement object
 ```python
 import time
 import os
-import 42videobricks-python-client
-from 42videobricks-python-client.rest import ApiException
+import Api42Vb
+from Api42Vb.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
+configuration = Api42Vb.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -695,9 +695,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
+with Api42Vb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = 42videobricks-python-client.VideosApi(api_client)
+    api_instance = Api42Vb.VideosApi(api_client)
     video_id = '{{videoId}}' # str | Id of the video
     attachment_type = '{{attachmentType}}' # str | Type of attachment
     locale = '{{locale}}' # str | Le locale value of the attachment
@@ -755,13 +755,13 @@ Get the attachement file Currently only text/plain files are handled.
 ```python
 import time
 import os
-import 42videobricks-python-client
-from 42videobricks-python-client.rest import ApiException
+import Api42Vb
+from Api42Vb.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
+configuration = Api42Vb.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -777,9 +777,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
+with Api42Vb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = 42videobricks-python-client.VideosApi(api_client)
+    api_instance = Api42Vb.VideosApi(api_client)
     video_id = '{{videoId}}' # str | Id of the video
     attachment_type = '{{attachmentType}}' # str | Type of attachment
     locale = '{{locale}}' # str | Le locale value of the attachment
@@ -837,14 +837,14 @@ Return a list of attachments to a videos
 ```python
 import time
 import os
-import 42videobricks-python-client
-from 42videobricks-python-client.models.video_attachment_list import VideoAttachmentList
-from 42videobricks-python-client.rest import ApiException
+import Api42Vb
+from Api42Vb.models.video_attachment_list import VideoAttachmentList
+from Api42Vb.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
+configuration = Api42Vb.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -860,9 +860,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
+with Api42Vb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = 42videobricks-python-client.VideosApi(api_client)
+    api_instance = Api42Vb.VideosApi(api_client)
     video_id = '{{videoId}}' # str | Id of the video
     attachment_type = 'attachment_type_example' # str | The type of attachments (optional)
     locale = 'locale_example' # str | The locale (optional)
@@ -924,14 +924,14 @@ Retun a single video
 ```python
 import time
 import os
-import 42videobricks-python-client
-from 42videobricks-python-client.models.video import Video
-from 42videobricks-python-client.rest import ApiException
+import Api42Vb
+from Api42Vb.models.video import Video
+from Api42Vb.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
+configuration = Api42Vb.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -947,9 +947,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
+with Api42Vb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = 42videobricks-python-client.VideosApi(api_client)
+    api_instance = Api42Vb.VideosApi(api_client)
     video_id = '{{videoId}}' # str | Id of the video
     token = true # bool | add a token to assets to alloaw access to private video (optional)
 
@@ -999,7 +999,7 @@ Name | Type | Description  | Notes
 
 List videos
 
-Return the list of videos.  Optionnal: Title is used to filter video: only video containing  this string ware returned.  Return an empty list it there is no video to return.
+Return the list of videos.  Return an empty list it there is no video to return.
 
 ### Example
 
@@ -1007,14 +1007,14 @@ Return the list of videos.  Optionnal: Title is used to filter video: only video
 ```python
 import time
 import os
-import 42videobricks-python-client
-from 42videobricks-python-client.models.video_list import VideoList
-from 42videobricks-python-client.rest import ApiException
+import Api42Vb
+from Api42Vb.models.video_list import VideoList
+from Api42Vb.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
+configuration = Api42Vb.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -1030,9 +1030,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
+with Api42Vb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = 42videobricks-python-client.VideosApi(api_client)
+    api_instance = Api42Vb.VideosApi(api_client)
     limit = 56 # int | Number of elements to return (default=10) (optional)
     offset = 56 # int | offset for pagination (optional)
     search = '{{search}}' # str | Keywords search in all indexed fields (optional)
@@ -1093,15 +1093,15 @@ Get signed urls to upload a big file split in multiparts Once the video is uploa
 ```python
 import time
 import os
-import 42videobricks-python-client
-from 42videobricks-python-client.models.video_multipart_upload_init import VideoMultipartUploadInit
-from 42videobricks-python-client.models.video_multipart_upload_init_response import VideoMultipartUploadInitResponse
-from 42videobricks-python-client.rest import ApiException
+import Api42Vb
+from Api42Vb.models.video_multipart_upload_init import VideoMultipartUploadInit
+from Api42Vb.models.video_multipart_upload_init_response import VideoMultipartUploadInitResponse
+from Api42Vb.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
+configuration = Api42Vb.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -1117,11 +1117,11 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
+with Api42Vb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = 42videobricks-python-client.VideosApi(api_client)
+    api_instance = Api42Vb.VideosApi(api_client)
     video_id = '{{videoId}}' # str | Id of the video
-    video_multipart_upload_init = 42videobricks-python-client.VideoMultipartUploadInit() # VideoMultipartUploadInit |  (optional)
+    video_multipart_upload_init = Api42Vb.VideoMultipartUploadInit() # VideoMultipartUploadInit |  (optional)
 
     try:
         # Multipart upload intialization
@@ -1177,14 +1177,14 @@ Get a single signed url to upload a file Once the video is uploaded, do not forg
 ```python
 import time
 import os
-import 42videobricks-python-client
-from 42videobricks-python-client.models.video_upload_init_response import VideoUploadInitResponse
-from 42videobricks-python-client.rest import ApiException
+import Api42Vb
+from Api42Vb.models.video_upload_init_response import VideoUploadInitResponse
+from Api42Vb.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
+configuration = Api42Vb.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -1200,9 +1200,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
+with Api42Vb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = 42videobricks-python-client.VideosApi(api_client)
+    api_instance = Api42Vb.VideosApi(api_client)
     video_id = '{{videoId}}' # str | Id of the video
 
     try:
@@ -1258,14 +1258,14 @@ Update video properties  Only properties provided are updated.
 ```python
 import time
 import os
-import 42videobricks-python-client
-from 42videobricks-python-client.models.video_properties import VideoProperties
-from 42videobricks-python-client.rest import ApiException
+import Api42Vb
+from Api42Vb.models.video_properties import VideoProperties
+from Api42Vb.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-sbx.42videobricks.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = 42videobricks-python-client.Configuration(
+configuration = Api42Vb.Configuration(
     host = "https://api-sbx.42videobricks.com"
 )
 
@@ -1281,11 +1281,11 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with 42videobricks-python-client.ApiClient(configuration) as api_client:
+with Api42Vb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = 42videobricks-python-client.VideosApi(api_client)
+    api_instance = Api42Vb.VideosApi(api_client)
     video_id = '{{videoId}}' # str | Id of the video
-    video_properties = 42videobricks-python-client.VideoProperties() # VideoProperties | 
+    video_properties = Api42Vb.VideoProperties() # VideoProperties | 
 
     try:
         # Update an existing video

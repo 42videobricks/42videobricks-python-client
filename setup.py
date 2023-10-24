@@ -21,7 +21,7 @@ from setuptools import setup, find_packages  # noqa: H301
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 NAME = "42videobricks-python-client"
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 PYTHON_REQUIRES = ">=3.7"
 REQUIRES = [
     "urllib3 >= 1.25.3, < 2.1.0",
@@ -45,5 +45,5 @@ setup(
     long_description="""\
     42videobricks is a Video Platform As A Service (VPaaS)
     """,  # noqa: E501
-    package_data={"42videobricks-python-client": ["py.typed"]},
+    package_data={"Api42Vb": ["py.typed"]},
 )
