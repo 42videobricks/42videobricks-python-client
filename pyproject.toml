@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "Api42Vb"
-version = "1.1.0"
+version = "1.1.1"
 description = "42videobricks"
 authors = ["42videobricks"]
 license = "MIT"

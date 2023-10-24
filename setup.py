@@ -21,7 +21,7 @@ from setuptools import setup, find_packages  # noqa: H301
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 NAME = "42videobricks-python-client"
-VERSION = "1.1.0"
+VERSION = "1.1.1"
 PYTHON_REQUIRES = ">=3.7"
 REQUIRES = [
     "urllib3 >= 1.25.3, < 2.1.0",
@@ -33,17 +33,17 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="42videobricks",
-    author="OpenAPI Generator community",
-    author_email="team@openapitools.org",
-    url="",
-    keywords=["OpenAPI", "OpenAPI-Generator", "42videobricks"],
+    description="Official Pyhton client library for 42videobricks API",
+    author="42videobricks",
+    url="http://www.42videobricks.com",
+    keywords=["42videobricks", "video", "api", "client", "sdk", "rest"],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     long_description_content_type='text/markdown',
     long_description="""\
-    42videobricks is a Video Platform As A Service (VPaaS)
+    Official Pyhton client library for 42videobricks API.
+    42videobricks is a Video Platform As A Service (VPaaS).
     """,  # noqa: E501
     package_data={"Api42Vb": ["py.typed"]},
 )
