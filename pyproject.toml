@@ -5,7 +5,7 @@ description = "42videobricks"
 authors = ["OpenAPI Generator Community <team@openapitools.org>"]
 license = "NoLicense"
 readme = "README.md"
-repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
+repository = "https://github.com/42videobricks/42videobricks-python-client"
 keywords = ["OpenAPI", "OpenAPI-Generator", "42videobricks"]
 include = ["Api42Vb/py.typed"]
 
