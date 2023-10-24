@@ -6,7 +6,7 @@ authors = ["42videobricks"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/42videobricks/42videobricks-python-client.git"
-keywords = ["42videobricks", "video", "api", "client", "sdk", "rest"],
+keywords = ["42videobricks", "video", "api", "client", "sdk", "rest"]
 include = ["Api42Vb/py.typed"]
 
 [tool.poetry.dependencies]
