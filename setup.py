@@ -45,6 +45,13 @@ setup(
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     long_description_content_type='text/markdown',
-    long_description = (this_directory / "README.md").read_text(),
+    long_description="""\
+    # 42videobricks-python-client
+    Official Pyhton client library for 42videobricks API.
+
+    42videobricks is a Video Platform As A Service (VPaaS).
+
+    Get documentation in the [Github readme](https://github.com/42videobricks/42videobricks-nodejs-client#readme).
+    """,  # noqa: E501
     package_data={"Api42Vb": ["py.typed"]},
 )
