@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **public** | **bool** | Define if the video is public (it can be accessible by anybody with the video url). Default &#x3D; tue | [optional] 
 **tags** | **List[str]** | tags list linked to video | [optional] 
 **id** | **str** | id of the video (null when adding a new video) | 
-**status** | **str** | Status of the video : * &#39;REQUESTED&#39;: video as been submited, waiting for its creation * &#39;CREATED&#39;: video has been created and file can be uploaded          * &#39;TRANSCODING&#39;: video is unvailable because still in the creation  &amp; in encoding process * &#39;AVAILABLE&#39;: video is ready to be stream | [optional] 
+**status** | **str** | Status of the video : * &#39;REQUESTED&#39;: video as been submited, waiting for its creation * &#39;CREATED&#39;: video has been created and file can be uploaded          * &#39;TRANSCODING&#39;: video is unvailable because still in the creation  &amp; in encoding process * &#39;TRANSCODING_ERROR&#39;: video is unvailable because the encoding failed  * &#39;AVAILABLE&#39;: video is ready to be stream | [optional] 
 **duration** | **int** | video duration in second | [optional] 
 **ctime** | **int** | Creation date (timestamp) | [optional] 
 **mtime** | **int** | Modification date (timestamp) | [optional] 

@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**get_attachment_file_by_video_id**](VideosApi.md#get_attachment_file_by_video_id) | **GET** /videos/{videoId}/attachments/{attachmentType}/{locale}/file | Get attachement file
 [**get_attachments_by_video_id**](VideosApi.md#get_attachments_by_video_id) | **GET** /videos/{videoId}/attachments | List of attachments
 [**get_video_by_id**](VideosApi.md#get_video_by_id) | **GET** /videos/{videoId} | Retun a single video
+[**get_video_status_by_id**](VideosApi.md#get_video_status_by_id) | **GET** /videos/{videoId}/status | Retun the detailed status of the video
 [**get_videos**](VideosApi.md#get_videos) | **GET** /videos | List videos
 [**init_multipart_upload_video_by_id**](VideosApi.md#init_multipart_upload_video_by_id) | **POST** /videos/{videoId}/multipart-upload/init | Multipart upload intialization
 [**init_upload_video_by_id**](VideosApi.md#init_upload_video_by_id) | **GET** /videos/{videoId}/upload/init | Single file upload intialization
@@ -994,6 +995,85 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_video_status_by_id**
+> VideoStatus get_video_status_by_id(video_id)
+
+Retun the detailed status of the video
+
+### Example
+
+* Api Key Authentication (api_key):
+```python
+import time
+import os
+import Api42Vb
+from Api42Vb.models.video_status import VideoStatus
+from Api42Vb.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api-sbx.42videobricks.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = Api42Vb.Configuration(
+    host = "https://api-sbx.42videobricks.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key
+configuration.api_key['api_key'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['api_key'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with Api42Vb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = Api42Vb.VideosApi(api_client)
+    video_id = '{{videoId}}' # str | Id of the video
+
+    try:
+        # Retun the detailed status of the video
+        api_response = api_instance.get_video_status_by_id(video_id)
+        print("The response of VideosApi->get_video_status_by_id:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling VideosApi->get_video_status_by_id: %s\n" % e)
+```
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **video_id** | **str**| Id of the video | 
+
+### Return type
+
+[**VideoStatus**](VideoStatus.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Requested Video |  -  |
+**400** | The request is invalid or incomplete |  -  |
+**404** | The specified resource was not found |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_videos**
 > VideoList get_videos(limit=limit, offset=offset, search=search, sort=sort)
 
@@ -1036,7 +1116,7 @@ with Api42Vb.ApiClient(configuration) as api_client:
     limit = 56 # int | Number of elements to return (default=10) (optional)
     offset = 56 # int | offset for pagination (optional)
     search = '{{search}}' # str | Keywords search in all indexed fields (optional)
-    sort = 'title:desc,ctime:asc' # str | Sorting results (optional)
+    sort = 'ctime:asc' # str | Sorting results (optional)
 
     try:
         # List videos

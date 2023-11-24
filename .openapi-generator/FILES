@@ -5,6 +5,7 @@
 Api42Vb/__init__.py
 Api42Vb/api/__init__.py
 Api42Vb/api/data_api.py
+Api42Vb/api/playlists_api.py
 Api42Vb/api/tags_api.py
 Api42Vb/api/videos_api.py
 Api42Vb/api/webhooks_api.py
@@ -17,6 +18,9 @@ Api42Vb/models/data_video_usage.py
 Api42Vb/models/data_video_usage_list.py
 Api42Vb/models/error.py
 Api42Vb/models/pagination.py
+Api42Vb/models/playlist.py
+Api42Vb/models/playlist_list.py
+Api42Vb/models/playlist_properties.py
 Api42Vb/models/tag_list.py
 Api42Vb/models/video.py
 Api42Vb/models/video_assets.py
@@ -29,6 +33,7 @@ Api42Vb/models/video_multipart_upload_init.py
 Api42Vb/models/video_multipart_upload_init_response.py
 Api42Vb/models/video_multipart_upload_init_response_parts_inner.py
 Api42Vb/models/video_properties.py
+Api42Vb/models/video_status.py
 Api42Vb/models/video_upload_init_response.py
 Api42Vb/models/webhook.py
 Api42Vb/models/webhook_list.py
@@ -41,6 +46,10 @@ docs/DataVideoUsage.md
 docs/DataVideoUsageList.md
 docs/Error.md
 docs/Pagination.md
+docs/Playlist.md
+docs/PlaylistList.md
+docs/PlaylistProperties.md
+docs/PlaylistsApi.md
 docs/TagList.md
 docs/TagsApi.md
 docs/Video.md
@@ -54,6 +63,7 @@ docs/VideoMultipartUploadInit.md
 docs/VideoMultipartUploadInitResponse.md
 docs/VideoMultipartUploadInitResponsePartsInner.md
 docs/VideoProperties.md
+docs/VideoStatus.md
 docs/VideoUploadInitResponse.md
 docs/VideosApi.md
 docs/Webhook.md

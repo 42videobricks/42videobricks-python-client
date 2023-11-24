@@ -20,19 +20,22 @@ import json
 
 
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictStr
-from pydantic import Field
+from pydantic import BaseModel, StrictInt
+from Api42Vb.models.playlist import Playlist
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
-class VideoUploadInitResponse(BaseModel):
+class PlaylistList(BaseModel):
     """
-    Video Single Upload Init response object
+    Playlist Object list
     """ # noqa: E501
-    signed_url: Optional[StrictStr] = Field(default=None, description="signed url", alias="signedUrl")
-    __properties: ClassVar[List[str]] = ["signedUrl"]
+    offset: StrictInt
+    limit: StrictInt
+    total: StrictInt
+    data: Optional[List[Playlist]] = None
+    __properties: ClassVar[List[str]] = ["offset", "limit", "total", "data"]
 
     model_config = {
         "populate_by_name": True,
@@ -51,7 +54,7 @@ class VideoUploadInitResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Create an instance of VideoUploadInitResponse from a JSON string"""
+        """Create an instance of PlaylistList from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,11 +73,18 @@ class VideoUploadInitResponse(BaseModel):
             },
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in data (list)
+        _items = []
+        if self.data:
+            for _item in self.data:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['data'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Dict) -> Self:
-        """Create an instance of VideoUploadInitResponse from a dict"""
+        """Create an instance of PlaylistList from a dict"""
         if obj is None:
             return None
 
@@ -82,7 +92,10 @@ class VideoUploadInitResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "signedUrl": obj.get("signedUrl")
+            "offset": obj.get("offset"),
+            "limit": obj.get("limit"),
+            "total": obj.get("total"),
+            "data": [Playlist.from_dict(_item) for _item in obj.get("data")] if obj.get("data") is not None else None
         })
         return _obj
 

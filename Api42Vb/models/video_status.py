@@ -20,19 +20,31 @@ import json
 
 
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictStr
+from pydantic import BaseModel, field_validator
 from pydantic import Field
+from typing_extensions import Annotated
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
-class VideoUploadInitResponse(BaseModel):
+class VideoStatus(BaseModel):
     """
-    Video Single Upload Init response object
+    Video Status Object
     """ # noqa: E501
-    signed_url: Optional[StrictStr] = Field(default=None, description="signed url", alias="signedUrl")
-    __properties: ClassVar[List[str]] = ["signedUrl"]
+    status: Optional[Annotated[str, Field(strict=True, max_length=50)]] = Field(default=None, description="Status of the video")
+    message: Optional[Annotated[str, Field(strict=True, max_length=256)]] = Field(default=None, description="Offer comprehensive elucidation and intricate details to expound upon the occurrence of an encoding error within the video, expounding upon the intricacies and nuances involved in such an exceptional event")
+    __properties: ClassVar[List[str]] = ["status", "message"]
+
+    @field_validator('status')
+    def status_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in ('AVAILABLE', 'CREATED', 'REQUESTED', 'TRANSCODING', 'TRANSCODING_ERROR'):
+            raise ValueError("must be one of enum values ('AVAILABLE', 'CREATED', 'REQUESTED', 'TRANSCODING', 'TRANSCODING_ERROR')")
+        return value
 
     model_config = {
         "populate_by_name": True,
@@ -51,7 +63,7 @@ class VideoUploadInitResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Create an instance of VideoUploadInitResponse from a JSON string"""
+        """Create an instance of VideoStatus from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,7 +86,7 @@ class VideoUploadInitResponse(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Dict) -> Self:
-        """Create an instance of VideoUploadInitResponse from a dict"""
+        """Create an instance of VideoStatus from a dict"""
         if obj is None:
             return None
 
@@ -82,7 +94,8 @@ class VideoUploadInitResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "signedUrl": obj.get("signedUrl")
+            "status": obj.get("status"),
+            "message": obj.get("message")
         })
         return _obj
 

@@ -22,17 +22,20 @@ import json
 from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictStr
 from pydantic import Field
+from typing_extensions import Annotated
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
-class VideoUploadInitResponse(BaseModel):
+class PlaylistProperties(BaseModel):
     """
-    Video Single Upload Init response object
+    Video Properties Object
     """ # noqa: E501
-    signed_url: Optional[StrictStr] = Field(default=None, description="signed url", alias="signedUrl")
-    __properties: ClassVar[List[str]] = ["signedUrl"]
+    name: Optional[Annotated[str, Field(strict=True, max_length=256)]] = Field(default=None, description="name of the playlist")
+    description: Optional[Annotated[str, Field(strict=True, max_length=2048)]] = Field(default=None, description="description of the playlist")
+    children: Optional[List[StrictStr]] = Field(default=None, description="ordered list of video Id in the playlist")
+    __properties: ClassVar[List[str]] = ["name", "description", "children"]
 
     model_config = {
         "populate_by_name": True,
@@ -51,7 +54,7 @@ class VideoUploadInitResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Create an instance of VideoUploadInitResponse from a JSON string"""
+        """Create an instance of PlaylistProperties from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,7 +77,7 @@ class VideoUploadInitResponse(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Dict) -> Self:
-        """Create an instance of VideoUploadInitResponse from a dict"""
+        """Create an instance of PlaylistProperties from a dict"""
         if obj is None:
             return None
 
@@ -82,7 +85,9 @@ class VideoUploadInitResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "signedUrl": obj.get("signedUrl")
+            "name": obj.get("name"),
+            "description": obj.get("description"),
+            "children": obj.get("children")
         })
         return _obj
 

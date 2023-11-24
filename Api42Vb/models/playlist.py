@@ -20,19 +20,26 @@ import json
 
 
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictStr
+from pydantic import BaseModel, StrictInt, StrictStr
 from pydantic import Field
+from typing_extensions import Annotated
+from Api42Vb.models.video import Video
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
-class VideoUploadInitResponse(BaseModel):
+class Playlist(BaseModel):
     """
-    Video Single Upload Init response object
+    Playlist Object
     """ # noqa: E501
-    signed_url: Optional[StrictStr] = Field(default=None, description="signed url", alias="signedUrl")
-    __properties: ClassVar[List[str]] = ["signedUrl"]
+    id: StrictStr = Field(description="id of the playlist (null when adding a new video)")
+    name: Optional[Annotated[str, Field(strict=True, max_length=256)]] = Field(default=None, description="name of the playlist")
+    description: Optional[Annotated[str, Field(strict=True, max_length=2048)]] = Field(default=None, description="description of the playlist")
+    children: Optional[List[Video]] = Field(default=None, description="ordered list of video in the playlist")
+    ctime: Optional[StrictInt] = Field(default=None, description="Creation date (timestamp)")
+    mtime: Optional[StrictInt] = Field(default=None, description="Modification date (timestamp)")
+    __properties: ClassVar[List[str]] = ["id", "name", "description", "children", "ctime", "mtime"]
 
     model_config = {
         "populate_by_name": True,
@@ -51,7 +58,7 @@ class VideoUploadInitResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Create an instance of VideoUploadInitResponse from a JSON string"""
+        """Create an instance of Playlist from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,11 +77,18 @@ class VideoUploadInitResponse(BaseModel):
             },
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in children (list)
+        _items = []
+        if self.children:
+            for _item in self.children:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['children'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Dict) -> Self:
-        """Create an instance of VideoUploadInitResponse from a dict"""
+        """Create an instance of Playlist from a dict"""
         if obj is None:
             return None
 
@@ -82,7 +96,12 @@ class VideoUploadInitResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "signedUrl": obj.get("signedUrl")
+            "id": obj.get("id"),
+            "name": obj.get("name"),
+            "description": obj.get("description"),
+            "children": [Video.from_dict(_item) for _item in obj.get("children")] if obj.get("children") is not None else None,
+            "ctime": obj.get("ctime"),
+            "mtime": obj.get("mtime")
         })
         return _obj
 

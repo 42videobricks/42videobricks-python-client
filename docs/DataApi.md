@@ -8,11 +8,11 @@ Method | HTTP request | Description
 
 
 # **get_data_video_usage**
-> DataVideoUsageList get_data_video_usage(limit=limit, offset=offset)
+> DataVideoUsageList get_data_video_usage(limit=limit, offset=offset, interval=interval, start_date=start_date, end_date=end_date)
 
 List Video Usage KPIs
 
-Return the monthly usage of the platform ressources. For current month, usage is calculated until current time.
+Return the usage of the platform ressources.  By default, it returns monthly usage but unit (dayly|week|month) can be defined. For current period, usage is calculated until current time. Start and end dates can be also optionaly defined to filter results.
 
 ### Example
 
@@ -48,10 +48,13 @@ with Api42Vb.ApiClient(configuration) as api_client:
     api_instance = Api42Vb.DataApi(api_client)
     limit = 56 # int | Number of elements to return (default=10) (optional)
     offset = 56 # int | offset for pagination (optional)
+    interval = '{{interval}}' # str | Period unit (day|week|month) (optional)
+    start_date = '{{starDate}}' # str | Start date for the period (optional)
+    end_date = '{{endDate}}' # str | End date for the period (optional)
 
     try:
         # List Video Usage KPIs
-        api_response = api_instance.get_data_video_usage(limit=limit, offset=offset)
+        api_response = api_instance.get_data_video_usage(limit=limit, offset=offset, interval=interval, start_date=start_date, end_date=end_date)
         print("The response of DataApi->get_data_video_usage:\n")
         pprint(api_response)
     except Exception as e:
@@ -66,6 +69,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int**| Number of elements to return (default&#x3D;10) | [optional] 
  **offset** | **int**| offset for pagination | [optional] 
+ **interval** | **str**| Period unit (day|week|month) | [optional] 
+ **start_date** | **str**| Start date for the period | [optional] 
+ **end_date** | **str**| End date for the period | [optional] 
 
 ### Return type
 
